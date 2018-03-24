@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}New Item{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+{% block content %}
+    <!--<h2>New Item</h2>-->
+    <form action="{{ url_for('createItem') }}" method = "post">
+        <fieldset>
+            <legend>New Item</legend>
+            <div>
+                <label for="name">Title</label>
+                <input type="text" name="name" required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea name="description" required></textarea> 
+            </div>
+            <div>
+                <label for="category">Category</label>
+                <select name="category">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="button-container">
+                <a href="{{ url_for('showCatalog') }}"><button type="button">Cancel</button></a>
+                <button type="submit">Create</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

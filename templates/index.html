@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Catalog App{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+{% block content %}
+    {% include "categories.html" %}
+    <main>
+        <div class="items-header">
+            <h2>Latest Items</h2>
+            {% if 'name' in session %}
+                <a class="link-style1" href="{{ url_for('createItem') }}">Add Item</a>
+            {% endif %}
+        </div>
+        <ul class="item-list">
+            {% for item in recent_items %}
+                {% for category in categories %}
+                    {% if category.id == item.category_id %}
+                        <li>
+                            <a class="link-style1" href="{{ url_for('showItem', category_name=category.name, item_name=item.name) }}">
+                            {{ item.name }}</a>
+                            <a class="link-style2" href="{{ url_for('showCategoryItems', category_name=category.name) }}">
+                            ({{ category.name }})</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ul>   
+    </main>
+{% endblock %}

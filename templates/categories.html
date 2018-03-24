@@ -1,0 +1,10 @@
+<aside>
+    <h2>Categories</h2>
+    <ul class="category-list">
+        {% for category in categories %}
+        <li>
+            <a class="link-style1" href="{{ url_for('showCategoryItems', category_name=category.name) }}">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</aside>

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Delete Item{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+{% block content %}
+    <form action="{{ url_for('deleteItem', item_name=item.name) }}" method = "post">
+        <fieldset>
+            <legend>Delete Item</legend>
+            <div>Are you sure you want to delete {{ item.name }}?</div>
+            <div class="button-container">
+                <a href="{{ url_for('showItem', category_name=category.name, item_name=item.name) }}"><button type="button">Cancel</button></a>
+                <button type="submit">Delete</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}{{ item.name }}{% endblock %}
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+{% block content %}
+    <h2 class="item-name">{{ item.name }}</h2>
+    <p class="item-description">Description: {{ item.description }}</p>
+    <div class="footer-links">
+        <a class="link-style1" href="{{ url_for('showCategoryItems', category_name=category_name) }}">Back to {{ category_name }}</a>
+        <div class="edit-delete-links">
+            {% if 'name' in session %}
+                <a class="link-style1" href="{{ url_for('editItem', category_name=category_name, item_name=item.name) }}">Edit</a>
+                |
+                <a class="link-style1" href="{{ url_for('deleteItem', category_name=category_name, item_name=item.name) }}">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
