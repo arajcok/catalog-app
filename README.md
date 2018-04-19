@@ -3,7 +3,7 @@ This application provides a list of items within a variety of categories as well
 
 ## Run
 In order for the application to run successfully, the user must first register this application with Google in order to use the OAuth2 login feature and add `http://localhost:5000` to the authorized JavaScript origins and `http://localhost:5000/login` and `http://localhost:5000/oauth/google` to the authorized redirect URIs. Then, the user must dowload the client secrets and store them in a `client_secrets.json` file, in the same directory as `application.py`.
-Next, the usr must run `database_setup.py`, followed by `catalog.py`. These files create the database and tables and populate them with the categories and several items. 
+Next, the user must run `database_setup.py`, followed by `catalog.py`. These files create the database and tables and populate them with the categories and several items. 
 Lastly, execute `application.py` to launch the program, and navigate to `http://localhost:500` to peruse the app.
 
 ## Files
